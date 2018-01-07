@@ -19,5 +19,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [customValidators.containsSpace,Validators.required]),
     isRemember:new FormControl('',Validators.required)
   });
+
+  login(){
+    console.log(this.loginForm.value);
+  }
   
 }

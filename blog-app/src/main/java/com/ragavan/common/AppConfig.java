@@ -7,8 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.ragavan.common.BlogProperties;
-
 @Component
 @ComponentScan(basePackages = "com.ragavan")
 public class AppConfig {
