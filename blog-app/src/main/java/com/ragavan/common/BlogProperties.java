@@ -15,13 +15,21 @@ public class BlogProperties {
 	@Value("${JDBC_URL}")
 	private String jdbcURL;
 
+	@Value("${JDBC_DRIVER}")
+	private String jdbcDriver;
+
 	public String getJdbcUsername() {
 		return jdbcUsername;
 	}
 
 	@Bean
 	public BlogProperties getBlogConfig() {
-		return this;
+		final BlogProperties blogProperties = new BlogProperties();
+		blogProperties.jdbcPassword = this.getJdbcPassword();
+		blogProperties.jdbcUsername = this.getJdbcUsername();
+		blogProperties.jdbcURL = this.getJdbcURL();
+		blogProperties.jdbcDriver = this.getJdbcDriver();
+		return blogProperties;
 	}
 
 	public void setJdbcUsername(String jdbcUsername) {
@@ -42,5 +50,13 @@ public class BlogProperties {
 
 	public void setJdbcURL(String jdbcURL) {
 		this.jdbcURL = jdbcURL;
+	}
+
+	public String getJdbcDriver() {
+		return jdbcDriver;
+	}
+
+	public void setJdbcDriver(String jdbcDriver) {
+		this.jdbcDriver = jdbcDriver;
 	}
 }

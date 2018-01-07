@@ -36,6 +36,8 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('mysql:mysql-connector-java:6.0.6')
+	compile('org.springframework:spring-jdbc')
+	compile('org.apache.commons:commons-dbcp2:2.2.0')
 	compile('org.springframework.cloud:spring-cloud-config-client')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')

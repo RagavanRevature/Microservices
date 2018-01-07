@@ -5,6 +5,7 @@ public class User {
 	private String userName;
 	private String password;
 	private String emailId;
+	private Role roleId;
 	private String activationCode;
 	private int activation;
 
@@ -54,5 +55,13 @@ public class User {
 
 	public void setActivation(int activation) {
 		this.activation = activation;
+	}
+
+	public Role getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Role roleId) {
+		this.roleId = roleId;
 	}
 }
