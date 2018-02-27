@@ -2,11 +2,13 @@ package com.ragavan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-public class BlogAppApplication {
+@ImportResource("classpath:spring-config.xml")
+public class BlogAppApplicationJAR {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BlogAppApplication.class, args);
+		SpringApplication.run(BlogAppApplicationJAR.class, args);
 	}
 }

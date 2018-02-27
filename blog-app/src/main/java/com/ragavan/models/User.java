@@ -1,13 +1,30 @@
 package com.ragavan.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
+	@Id
 	private int id;
+	@Column(name = "username")
 	private String userName;
+	@Column(name = "password")
 	private String password;
+	@Column(name = "email_id")
 	private String emailId;
-	private Role roleId;
+	@ManyToOne
+	@JoinColumn(name = "role_id")
+	private Role role;
+	@Column(name = "activation_code")
 	private String activationCode;
-	private int activation;
+	@Column(name = "activation")
+	private boolean activation;
 
 	public int getId() {
 		return id;
@@ -49,19 +66,19 @@ public class User {
 		this.activationCode = activationCode;
 	}
 
-	public int getActivation() {
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public boolean isActivation() {
 		return activation;
 	}
 
-	public void setActivation(int activation) {
+	public void setActivation(boolean activation) {
 		this.activation = activation;
-	}
-
-	public Role getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Role roleId) {
-		this.roleId = roleId;
 	}
 }

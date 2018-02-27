@@ -6,11 +6,11 @@ import com.ragavan.models.User;
 
 public interface UserService {
 
-	int save(User user);
+	void save(User user);
 
-	int update(User user);
+	void update(User user);
 
-	int delete(int id);
+	void delete(User user);
 
 	List<User> list();
 

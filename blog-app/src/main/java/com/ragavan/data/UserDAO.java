@@ -6,14 +6,14 @@ import com.ragavan.models.User;
 
 public interface UserDAO {
 
-	int save(User user);
+	void save(User user);
 
-	int update(User user);
+	void update(User user);
 
-	int delete(int id);
+	void delete(User user);
 
-	List<User> list();
+	List<User> getAllUsers();
 
-	User listOne(String name);
+	User getUserByUserName(String name);
 
 }
