@@ -5,17 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
-/**
- * 
- * @author Ragavan
- *
- */
+/** @author Ragavan */
 @SpringBootApplication
 @EnableConfigServer
 @EnableDiscoveryClient
 public class ConfigurationServerApplicationJAR {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConfigurationServerApplicationJAR.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ConfigurationServerApplicationJAR.class, args);
+  }
 }

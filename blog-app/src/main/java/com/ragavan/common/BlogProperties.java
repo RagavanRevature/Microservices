@@ -6,57 +6,85 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BlogProperties {
-	@Value("${JDBC_USERNAME}")
-	private String jdbcUsername;
+  @Value("${hibernate.dialect}")
+  private String hibernateDialect;
 
-	@Value("${JDBC_PASSWORD}")
-	private String jdbcPassword;
+  @Value("${hibernate.default_schema}")
+  private String hibernateDefaultSchema;
 
-	@Value("${JDBC_URL}")
-	private String jdbcURL;
+  @Value("${hibernate.show_sql}")
+  private String hibernateShowSQL;
 
-	@Value("${JDBC_DRIVER}")
-	private String jdbcDriver;
+  @Value("${hibernate.format_sql}")
+  private String hibernateFormatSQL;
 
-	public String getJdbcUsername() {
-		return jdbcUsername;
-	}
+  @Value("${hibernate.use_sql_comments}")
+  private String hibernateUseSQLComments;
 
-	@Bean
-	public BlogProperties getBlogConfig() {
-		final BlogProperties blogProperties = new BlogProperties();
-		blogProperties.jdbcPassword = this.getJdbcPassword();
-		blogProperties.jdbcUsername = this.getJdbcUsername();
-		blogProperties.jdbcURL = this.getJdbcURL();
-		blogProperties.jdbcDriver = this.getJdbcDriver();
-		return blogProperties;
-	}
+  @Value("${hibernate.generate_statistics}")
+  private String hibernateGenerateStatistics;
 
-	public void setJdbcUsername(String jdbcUsername) {
-		this.jdbcUsername = jdbcUsername;
-	}
+  @Value("${hibernate.autocommit}")
+  private String hibernateAutoCommit;
 
-	public String getJdbcPassword() {
-		return jdbcPassword;
-	}
+  @Bean
+  public BlogProperties getBlogConfig() {
+    return this;
+  }
 
-	public void setJdbcPassword(String jdbcPassword) {
-		this.jdbcPassword = jdbcPassword;
-	}
+  public String getHibernateDialect() {
+    return hibernateDialect;
+  }
 
-	public String getJdbcURL() {
-		return jdbcURL;
-	}
+  public void setHibernateDialect(String hibernateDialect) {
+    this.hibernateDialect = hibernateDialect;
+  }
 
-	public void setJdbcURL(String jdbcURL) {
-		this.jdbcURL = jdbcURL;
-	}
+  public String getHibernateDefaultSchema() {
+    return hibernateDefaultSchema;
+  }
 
-	public String getJdbcDriver() {
-		return jdbcDriver;
-	}
+  public void setHibernateDefaultSchema(String hibernateDefaultSchema) {
+    this.hibernateDefaultSchema = hibernateDefaultSchema;
+  }
 
-	public void setJdbcDriver(String jdbcDriver) {
-		this.jdbcDriver = jdbcDriver;
-	}
+  public String getHibernateShowSQL() {
+    return hibernateShowSQL;
+  }
+
+  public void setHibernateShowSQL(String hibernateShowSQL) {
+    this.hibernateShowSQL = hibernateShowSQL;
+  }
+
+  public String getHibernateFormatSQL() {
+    return hibernateFormatSQL;
+  }
+
+  public void setHibernateFormatSQL(String hibernateFormatSQL) {
+    this.hibernateFormatSQL = hibernateFormatSQL;
+  }
+
+  public String getHibernateUseSQLComments() {
+    return hibernateUseSQLComments;
+  }
+
+  public void setHibernateUseSQLComments(String hibernateUseSQLComments) {
+    this.hibernateUseSQLComments = hibernateUseSQLComments;
+  }
+
+  public String getHibernateGenerateStatistics() {
+    return hibernateGenerateStatistics;
+  }
+
+  public void setHibernateGenerateStatistics(String hibernateGenerateStatistics) {
+    this.hibernateGenerateStatistics = hibernateGenerateStatistics;
+  }
+
+  public String getHibernateAutoCommit() {
+    return hibernateAutoCommit;
+  }
+
+  public void setHibernateAutoCommit(String hibernateAutoCommit) {
+    this.hibernateAutoCommit = hibernateAutoCommit;
+  }
 }

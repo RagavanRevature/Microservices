@@ -19,5 +19,4 @@ public class ReferentialIntegrityException extends DataOperationFailedException 
   public ReferentialIntegrityException(String message, Throwable exception) {
     super(message, exception);
   }
-
 }

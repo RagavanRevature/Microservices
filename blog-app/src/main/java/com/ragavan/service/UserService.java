@@ -1,19 +1,17 @@
 package com.ragavan.service;
 
-import java.util.List;
-
 import com.ragavan.models.User;
+import java.util.List;
 
 public interface UserService {
 
-	void save(User user);
+  void save(User user);
 
-	void update(User user);
+  void update(User user);
 
-	void delete(User user);
+  void delete(User user);
 
-	List<User> list();
+  List<User> list();
 
-	User listOne(String name);
-
+  User listOne(String name);
 }

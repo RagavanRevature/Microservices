@@ -19,5 +19,4 @@ public class DataOperationFailedException extends DataAccessException {
   public DataOperationFailedException(String message, Throwable exception) {
     super(message, exception);
   }
-
 }

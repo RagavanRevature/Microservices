@@ -29,5 +29,4 @@ public class QueryProperties {
   public void setFetchSize(Integer fetchSize) {
     this.fetchSize = fetchSize;
   }
-
 }
