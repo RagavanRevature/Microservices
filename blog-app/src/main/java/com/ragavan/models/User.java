@@ -1,89 +1,94 @@
 package com.ragavan.models;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class User {
-  @Id private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-  @Column(name = "username")
-  private String userName;
+	@Column(name = "username")
+	private String userName;
 
-  @Column(name = "password")
-  private String password;
+	@Column(name = "password")
+	private String password;
 
-  @Column(name = "email_id")
-  private String emailId;
+	@Column(name = "email_id")
+	private String emailId;
 
-  @ManyToOne
-  @JoinColumn(name = "role_id")
-  private Role role;
+	@Column(name = "activation_code")
+	private String activationCode;
 
-  @Column(name = "activation_code")
-  private String activationCode;
+	@Column(name = "activation")
+	private boolean activation;
 
-  @Column(name = "activation")
-  private boolean activation;
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<SeedRole> roles;
 
-  public int getId() {
-    return id;
-  }
+	public String getUserName() {
+		return userName;
+	}
 
-  public void setId(int id) {
-    this.id = id;
-  }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-  public String getUserName() {
-    return userName;
-  }
+	public String getPassword() {
+		return password;
+	}
 
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-  public String getPassword() {
-    return password;
-  }
+	public String getEmailId() {
+		return emailId;
+	}
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 
-  public String getEmailId() {
-    return emailId;
-  }
+	public String getActivationCode() {
+		return activationCode;
+	}
 
-  public void setEmailId(String emailId) {
-    this.emailId = emailId;
-  }
+	public void setActivationCode(String activationCode) {
+		this.activationCode = activationCode;
+	}
 
-  public String getActivationCode() {
-    return activationCode;
-  }
+	public boolean isActivation() {
+		return activation;
+	}
 
-  public void setActivationCode(String activationCode) {
-    this.activationCode = activationCode;
-  }
+	public void setActivation(boolean activation) {
+		this.activation = activation;
+	}
 
-  public Role getRole() {
-    return role;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public void setRole(Role role) {
-    this.role = role;
-  }
+	public Set<SeedRole> getRoles() {
+		return roles;
+	}
 
-  public boolean isActivation() {
-    return activation;
-  }
-
-  public void setActivation(boolean activation) {
-    this.activation = activation;
-  }
+	public void setRoles(Set<SeedRole> roles) {
+		this.roles = roles;
+	}
 }
